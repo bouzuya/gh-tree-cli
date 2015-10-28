@@ -1,17 +1,10 @@
 fetchIssuesWithRefs = require './fetch-issues-with-refs'
+formatIssues = require './format-issues'
 
 module.exports = ({ user, repo }) ->
   fetchIssuesWithRefs { repo, user }
   .then (issues) ->
-    issues
-    .map (i) ->
-      { html_url, title, number, refs } = i
-      ref = if refs.length > 0
-        '\n' + refs.map((j) -> '    ' + j).join('\n')
-      else
-        ''
-      "\##{number} #{title} #{html_url}" + ref
-    .join '\n'
+    console.log formatIssues issues
   .catch (e) ->
     console.error e
 
