@@ -17,6 +17,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
+    "start": "gh-tree-cli",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
