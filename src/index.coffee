@@ -7,7 +7,3 @@ module.exports = ({ user, repo }) ->
     console.log formatIssues issues
   .catch (e) ->
     console.error e
-
-main
-  user: 'bouzuya'
-  repo: 'blog.bouzuya.net'
