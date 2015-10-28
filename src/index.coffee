@@ -1,13 +1,6 @@
 cheerio = require 'cheerio'
 request = require './gh-request'
-
-fetchIssues = ({ user, repo }) ->
-  request
-    method: 'GET'
-    url: "https://api.github.com/repos/#{user}/#{repo}/issues"
-    json: true
-  .then ({ body }) ->
-    body # issues
+fetchIssues = require './fetch-issues'
 
 fetchRefs = ({ user, repo, number }) ->
   request
