@@ -4,7 +4,7 @@ getVersion = require './get-version'
 command = require 'commander-b'
 
 parseRepo = (repoString) ->
-  m = repoString.match(/^([^\/]+)\/(.+)$/)
+  m = (repoString ? '').match(/^([^\/]+)\/(.+)$/)
   return null unless m?
   [_, user, repo] = m
   { user, repo }
