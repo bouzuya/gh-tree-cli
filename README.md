@@ -1,5 +1,17 @@
 # gh-tree-cli
 
+## Installation
+
+```
+$ npm install -g bouzuya/gh-tree-cli
+```
+
+## Usage
+
+```
+$ gh-tree-cli -u bouzuya -r blog.bouzuya.net
+```
+
 ## License
 
 [MIT](LICENSE)
