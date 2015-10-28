@@ -1,23 +1,5 @@
-cheerio = require 'cheerio'
-request = require './gh-request'
 fetchIssues = require './fetch-issues'
-
-fetchRefs = ({ user, repo, number }) ->
-  request
-    method: 'GET'
-    url: "https://github.com/#{user}/#{repo}/issues/#{number}"
-  .then ({ body }) ->
-    $ = cheerio.load body
-    refs = []
-    $('.discussion-item-ref').each ->
-      $e = $ @
-      $l = $e.find '.title-link'
-      number = $e.find('.issue-num').text().trim()
-      title = $l.contents().first().text().trim()
-      url = 'https://github.com' + $l.attr 'href'
-      ref = [number, title, url].join ' '
-      refs.push ref
-    refs
+fetchRefs = require './fetch-refs'
 
 main = ({ user, repo }) ->
   fetchIssues { user, repo }
@@ -25,8 +7,7 @@ main = ({ user, repo }) ->
     issues.reduce (promise, issue) ->
       promise
       .then ->
-        number = issue.number
-        fetchRefs { user, repo, number }
+        fetchRefs issue
       .then (refs) ->
         issue.refs = refs
     , Promise.resolve()
