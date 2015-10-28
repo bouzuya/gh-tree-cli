@@ -2,7 +2,11 @@
   "name": "gh-tree-cli",
   "description": "gh-tree CLI",
   "version": "1.0.0",
-  "author": "bouzuya",
+  "author": {
+    "name": "bouzuya",
+    "email": "m@bouzuya.net",
+    "url": "http://bouzuya.net"
+  },
   "bin": {
     "gh-tree-cli": "./bin/gh-tree-cli"
   },
