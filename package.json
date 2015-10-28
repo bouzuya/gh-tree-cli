@@ -3,6 +3,9 @@
   "description": "gh-tree CLI",
   "version": "1.0.0",
   "author": "bouzuya",
+  "bin": {
+    "gh-tree-cli": "./bin/gh-tree-cli"
+  },
   "dependencies": {
     "cheerio": "^0.19.0",
     "coffee-script": "^1.10.0",
