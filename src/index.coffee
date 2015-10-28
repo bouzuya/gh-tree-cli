@@ -9,7 +9,14 @@ module.exports = ->
   .option '-u, --user <user>', 'user'
   .option '-r, --repo <repo>', 'repo'
   .action ({ user, repo }) ->
-    fetchIssuesWithRefs { repo, user }
+    repos = [
+      user: 'bouzuya'
+      repo: 'blog.bouzuya.net'
+    ,
+      user: 'bouzuya'
+      repo: 'bouzuya.net'
+    ]
+    fetchIssuesWithRefs repos
     .then (issues) ->
       console.log formatIssues issues
     .catch (e) ->

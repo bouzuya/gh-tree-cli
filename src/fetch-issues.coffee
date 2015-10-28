@@ -7,5 +7,5 @@ module.exports = ({ user, repo }) ->
     json: true
   .then ({ body }) ->
     body.map (i) ->
-      { html_url, number, title } = i
-      { number, title, refs: null, repo, url: html_url, user }
+      { html_url, number, title, body } = i
+      { body, number, title, repo, url: html_url, user }
