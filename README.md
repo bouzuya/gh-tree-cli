@@ -9,7 +9,7 @@ $ npm install -g bouzuya/gh-tree-cli
 ## Usage
 
 ```
-$ gh-tree-cli -u bouzuya -r blog.bouzuya.net
+$ gh-tree-cli bouzuya/blog.bouzuya.net,bouzuya/bouzuya.net
 ```
 
 ## License
