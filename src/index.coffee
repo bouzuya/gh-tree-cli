@@ -16,5 +16,6 @@ module.exports = ->
     .then (issues) ->
       console.log formatIssues issues
     .catch (e) ->
-      console.error e
+      console.error e.message
+      throw e
   .execute()
