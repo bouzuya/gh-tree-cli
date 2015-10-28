@@ -1,18 +1,7 @@
-fetchIssues = require './fetch-issues'
-fetchRefs = require './fetch-refs'
+fetchIssuesWithRefs = require './fetch-issues-with-refs'
 
-main = ({ user, repo }) ->
-  fetchIssues { user, repo }
-  .then (issues) ->
-    issues.reduce (promise, issue) ->
-      promise
-      .then ->
-        fetchRefs issue
-      .then (refs) ->
-        issue.refs = refs
-    , Promise.resolve()
-    .then ->
-      issues
+module.exports = ({ user, repo }) ->
+  fetchIssuesWithRefs { repo, user }
   .then (issues) ->
     issues
     .map (i) ->
