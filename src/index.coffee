@@ -3,20 +3,16 @@ formatIssues = require './format-issues'
 getVersion = require './get-version'
 command = require 'commander-b'
 
+parseRepos = (reposCsv) ->
+  reposCsv.split(/,/).map (i) ->
+    [user, repo] = i.split(/\//)
+    { user, repo }
+
 module.exports = ->
-  command()
+  command('gh-tree-cli <reposCsv>')
   .version(getVersion())
-  .option '-u, --user <user>', 'user'
-  .option '-r, --repo <repo>', 'repo'
-  .action ({ user, repo }) ->
-    repos = [
-      user: 'bouzuya'
-      repo: 'blog.bouzuya.net'
-    ,
-      user: 'bouzuya'
-      repo: 'bouzuya.net'
-    ]
-    fetchIssuesWithRefs repos
+  .action (reposCsv) ->
+    fetchIssuesWithRefs parseRepos reposCsv
     .then (issues) ->
       console.log formatIssues issues
     .catch (e) ->
