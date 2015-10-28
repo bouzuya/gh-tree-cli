@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../')({ user: 'bouzuya', repo: 'blog.bouzuya.net' });
+require('../')();
