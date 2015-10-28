@@ -1,7 +1,6 @@
 { Promise } = require 'es6-promise'
 assign = require 'object-assign'
 fetchIssues = require './fetch-issues'
-fetchRefs = require './fetch-refs'
 
 fetchAll = (repos) ->
   repos.reduce (promise, { user, repo }) ->
@@ -25,7 +24,7 @@ addParent = (issues) ->
 addChildren = (issues) ->
   issues.map (issue) ->
     { user, repo, number } = issue
-    assign {}, issue, refs: issues.filter (i) ->
+    assign {}, issue, children: issues.filter (i) ->
       p = i.parent
       p? and p.user is user and p.repo is repo and p.number is number
 
