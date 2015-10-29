@@ -16,8 +16,9 @@ module.exports = ->
   command('gh-tree-cli <reposCsv>')
   .version(getVersion())
   .option '-r, --root <repo>', 'root repository'
-  .action (reposCsv, { root }) ->
-    fetchIssuesWithChildren parseRepos reposCsv
+  .option '-t, --token <token>', 'personal access token'
+  .action (reposCsv, { root, token }) ->
+    fetchIssuesWithChildren token, parseRepos(reposCsv)
     .then (issues) ->
       console.log formatIssues issues, parseRepo root
     .catch (e) ->

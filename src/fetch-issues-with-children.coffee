@@ -2,11 +2,11 @@
 assign = require 'object-assign'
 fetchIssues = require './fetch-issues'
 
-fetchAll = (repos) ->
+fetchAll = (token, repos) ->
   repos.reduce (promise, { user, repo }) ->
     promise
     .then (issues) ->
-      fetchIssues { user, repo }
+      fetchIssues token, { user, repo }
       .then (newIssues) ->
         issues.concat newIssues
   , Promise.resolve([])
@@ -28,7 +28,7 @@ addChildren = (issues) ->
       p = i.parent
       p? and p.user is user and p.repo is repo and p.number is number
 
-module.exports = (repos) ->
-  fetchAll repos
+module.exports = (token, repos) ->
+  fetchAll token, repos
   .then addParent
   .then addChildren
