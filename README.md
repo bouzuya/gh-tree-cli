@@ -33,6 +33,13 @@ bouzuya/bouzuya.net#2 issueC https://github.com/bouzuya/bouzuya.net/issues/2
 bouzuya/bouzuya.net#1 issueA1 https://github.com/bouzuya/bouzuya.net/issues/1
 ```
 
+### `--token` option
+
+```
+$ gh-tree-cli bouzuya/private-repo -t c57138f60e6104e18c8c16f5dc3bb132787c5915
+bouzuya/private-repo#1 secret issue https://github.com/bouzuya/bouzuya.net/issues/1
+```
+
 ## License
 
 [MIT](LICENSE)
