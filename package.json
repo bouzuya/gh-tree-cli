@@ -15,7 +15,8 @@
     "commander-b": "^0.2.2",
     "es6-promise": "^3.0.2",
     "object-assign": "^4.0.1",
-    "request": "^2.65.0"
+    "request": "^2.65.0",
+    "table-b": "^1.0.0"
   },
   "keywords": [],
   "license": "MIT",
